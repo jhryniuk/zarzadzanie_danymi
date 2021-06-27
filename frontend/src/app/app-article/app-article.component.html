@@ -1,0 +1,21 @@
+<div class="d-flex flex-row">
+  <div class="w-50 p-3">
+    <div class="card">
+      <div class="card-header">{{article.title}}</div>
+      <div class="card-body">{{article.content}}</div>
+    </div>
+  </div>
+</div>
+
+<button (click)="editMode = !editMode">Edit</button>
+<div class="d-flex flex-row">
+  <div *ngIf="editMode" class="card">
+    <div class="card-body">
+      <div><input [(ngModel)]="article.title"></div>
+      <div><input [(ngModel)]="article.content"></div>
+    </div>
+    <div class="card-footer">
+      <button (click)="saveEdit()">Submit</button>
+    </div>
+  </div>
+</div>
