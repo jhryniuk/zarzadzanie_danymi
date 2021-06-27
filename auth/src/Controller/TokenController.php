@@ -15,11 +15,9 @@ class TokenController extends AbstractController
      */
     public function show(string $token): JsonResponse
     {
-        var_dump('test');
-        die();
+
         $date = date_create();
         $tok = $this->getDoctrine()->getRepository(Token::class)->findOneBy(['token' => $token]);
-        var_dump($tok);
         if (null !== $tok) {
             if ($tok->getValidDate() > $date) {
                 date_add($date, date_interval_create_from_date_string('30 minutes'));
@@ -32,8 +30,7 @@ class TokenController extends AbstractController
                     'token' => $tok->getToken(),
                     'valid_date' => $tok->getValidDate(),
                     'user' => ($tok->getUser())->getId(),
-                    'user_roles' => ($tok->getUser())->getRoles()
-                ], Response::HTTP_OK);
+                ], 200);
             }
 
             return new JsonResponse([], Response::HTTP_UNAUTHORIZED);

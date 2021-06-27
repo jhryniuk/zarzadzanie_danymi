@@ -8,12 +8,15 @@ import {ArticleService} from "./service/article.service";
 import {HttpClientModule} from "@angular/common/http";
 import {AppArticleComponent} from "./app-article/app-article.component";
 import {FormsModule} from "@angular/forms";
+import {AppRegisterComponent} from "./app-register/app-register.component";
+import {RegisterService} from "./service/register.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     AppArticleComponent,
-    AppArticlesComponent
+    AppArticlesComponent,
+    AppRegisterComponent
   ],
   imports: [
     AppRoutingModule,
@@ -22,7 +25,8 @@ import {FormsModule} from "@angular/forms";
     FormsModule
   ],
   providers: [
-    ArticleService
+    ArticleService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })

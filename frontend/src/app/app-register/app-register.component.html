@@ -1,0 +1,14 @@
+<div class="d-flex flex-column">
+  <div class="w-25 d-flex flex-row p-3">
+    <div class="w-50">Email:</div>
+    <div class="w-50"><input [(ngModel)]="newUser.email"></div>
+  </div>
+  <div class="w-25 d-flex flex-row p-3">
+    <div class="w-50">Hasło:</div>
+    <div class="w-50"><input type="password" [(ngModel)]="newUser.password"></div>
+  </div>
+  <div class="w-25 d-flex flex-row p-3">
+    <div class="w-50"></div>
+    <div class="w-50"><button class="btn btn-primary" (click)="register()">Zarejestruj się!</button></div>
+  </div>
+</div>

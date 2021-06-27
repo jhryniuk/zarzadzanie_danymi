@@ -7,15 +7,15 @@
   </div>
 </div>
 
-<button (click)="editMode = !editMode">Edit</button>
-<div class="d-flex flex-row">
+<div><button class="btn bg-primary" (click)="editMode = !editMode">Edytuj</button><button class="btn btn-danger" (click)="remove()">Usuń</button></div>
+<div class="d-flex w-50 p-3">
   <div *ngIf="editMode" class="card">
     <div class="card-body">
       <div><input [(ngModel)]="article.title"></div>
-      <div><input [(ngModel)]="article.content"></div>
+      <div><textarea [(ngModel)]="article.content"></textarea></div>
     </div>
     <div class="card-footer">
-      <button (click)="saveEdit()">Submit</button>
+      <button class="btn bg-primary" (click)="saveEdit()">Zapisz!</button>
     </div>
   </div>
 </div>

@@ -23,7 +23,6 @@ class AuthService
 
         $statusCode = $response->getStatusCode();
 
-
         $content = ['status' => 'Invalid token'];
         if ($statusCode === Response::HTTP_OK) {
             $content = $response->toArray();

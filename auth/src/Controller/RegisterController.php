@@ -21,8 +21,6 @@ class RegisterController extends AbstractController
         $form = $this->createForm(RegisterUserType::class);
         $form->submit(json_decode($request->getContent(), true));
 
-
-
         if ($form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $data = $form->getData();
@@ -31,10 +29,12 @@ class RegisterController extends AbstractController
                 $entityManager->persist($data);
                 $entityManager->flush();
             } catch (\Exception $e) {
+
                 return new JsonResponse([], Response::HTTP_BAD_REQUEST);
             }
 
-            return new JsonResponse($data, Response::HTTP_CREATED);
+
+            return new JsonResponse(['success' => true], Response::HTTP_CREATED);
         }
 
         return new JsonResponse([], Response::HTTP_BAD_REQUEST);

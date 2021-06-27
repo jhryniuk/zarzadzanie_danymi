@@ -8,7 +8,17 @@ import {ArticleModel} from "../model/article.model";
 })
 export class AppArticlesComponent implements OnInit {
   public articles: ArticleModel[] = [];
+  public newArticle: ArticleModel = {} as ArticleModel;
+  public showAddArticle = false;
   constructor(private articleService: ArticleService) {
+  }
+
+  public saveNewArticle(): void {
+    this.articleService.create(this.newArticle, '10XODBZ5yfdefkCIYCRF8Z4VEYe0aQPR67KsfdDlFMo').subscribe(() => {
+      this.articleService.query().subscribe((articles: ArticleModel[]) => {
+        this.articles = articles;
+      })
+    })
   }
 
   ngOnInit(): void {
